@@ -1,11 +1,11 @@
 import React, { createContext, useContext } from "react";
 import { useTrailerReducer } from './reducers';
 
-const StoreContext = createContext();
-const { Provider } = StoreContext;
+const ChoiceContext = createContext();
+const { Provider } =ChoiceContext;
 
 
-const StoreProvider = ({value = [], ...props}) => {
+const ChoiceProvider = ({value = [], ...props}) => {
     const [state, dispatch] = useTrailerReducer({
         trailers: [],
         displayTrailers:[],
@@ -16,8 +16,8 @@ const StoreProvider = ({value = [], ...props}) => {
     return <Provider value={[state, dispatch]} {...props} />
 }
 
-const useStoreContext = () => {
-    return useContext(StoreContext);
+const useChoiceContext = () => {
+    return useContext(ChoiceContext);
 };
 
-export { StoreProvider, useStoreContext };
+export { ChoiceProvider, useChoiceContext };
